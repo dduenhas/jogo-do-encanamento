@@ -154,10 +154,17 @@ body {
 /* ---------------- Botões ---------------- */
 .menu-row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
+  align-items: center;
   margin-top: 20px;
   flex-wrap: wrap;
+}
+.menu-row > .btn:not(.btn-icon) {
+  padding-left: 14px;
+  padding-right: 14px;
+  letter-spacing: 0.7px;
+  white-space: nowrap;
 }
 .menu-row-small { margin-top: 12px; font-size: 12px; text-align: center; }
 
@@ -184,7 +191,14 @@ body {
   box-shadow: 0 6px 18px rgba(44, 143, 214, .35);
 }
 .btn-danger { border-color: #6b2b34; color: #ffb9c0; }
-.btn-icon { padding: 12px 14px; font-size: 16px; }
+.btn-icon {
+  padding: 12px 14px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-icon svg { display: block; }
 .btn[disabled] { opacity: .4; cursor: not-allowed; }
 
 .muted { color: var(--muted); }
@@ -698,6 +712,126 @@ html[data-style="future"] .flow-mode.is-manual {
 .hud-locked { color: var(--warn); }
 .hud-danger { color: var(--warn); animation: blink .5s steps(2, start) infinite; }
 @keyframes blink { 50% { opacity: .35; } }
+
+/* ============================================================
+   FUNDAMENTAÇÃO — modal sem rolagem, cabe na tela
+   ============================================================ */
+.pedagogy {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  overflow: hidden;
+  background: rgba(5, 8, 14, 0.82);
+  backdrop-filter: blur(4px);
+}
+.pedagogy.show { display: flex; }
+.pedagogy-scale {
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+.pedagogy-board {
+  width: min(1080px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 2px solid var(--line);
+  background: linear-gradient(170deg, #212b42, #141a28);
+  box-shadow: var(--shadow);
+  color: #d7e0f2;
+  transform-origin: top left;
+  user-select: text;
+  -webkit-user-select: text;
+  touch-action: auto;
+  cursor: text;
+}
+.pedagogy-board .ped-close {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.ped-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+.ped-head h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.6px;
+  color: var(--gold);
+}
+.ped-close {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: #101725;
+  color: var(--txt);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.ped-close:hover { background: #1a2438; }
+.ped-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  overflow: hidden;
+}
+.ped-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(10, 16, 28, 0.45);
+  padding: 10px 12px;
+}
+.ped-card h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.ped-card p,
+.ped-codes {
+  margin: 0 0 4px;
+  font-size: 13px;
+  line-height: 1.32;
+}
+.ped-card p:last-child { margin-bottom: 0; }
+.ped-codes {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 10px;
+}
+.ped-codes li { min-width: 0; }
+.ped-codes b {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+.ped-note {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .ped-codes { grid-template-columns: 1fr; }
+}
 
 /* ============================================================
    OVERLAY / DIÁLOGOS

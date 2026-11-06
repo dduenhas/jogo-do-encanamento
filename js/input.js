@@ -83,6 +83,14 @@
   I.bindKeyboard = function () {
     document.addEventListener('keydown', function (e) {
       if (e.target && e.target.id === 'flow-slider') return;
+      var lesson = PM.$('pedagogy');
+      if (lesson && !lesson.hidden) {
+        var copy = e.code === 'KeyC' || e.code === 'KeyA' || e.code === 'KeyX' || e.code === 'Insert';
+        var extend = e.shiftKey && (e.code === 'ArrowLeft' || e.code === 'ArrowRight' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'Home' || e.code === 'End');
+        if (((e.ctrlKey || e.metaKey) && copy) || extend) return;
+        e.preventDefault();
+        return;
+      }
       if (PM.UI.screen !== 'game') {
         if (e.code === 'Enter' || e.code === 'Space') {
           e.preventDefault();

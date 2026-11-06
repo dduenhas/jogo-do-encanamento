@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#10141c">
 <meta name="description" content="Jogo do encanamento: ligue os canos e conduza a água sem deixar vazar.">
 <title>Pipe Mania — Jogo do Encanamento</title>
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=14">
 </head>
 <body>
 
@@ -24,6 +24,12 @@
       <button id="btn-continue" class="btn">CONTINUAR</button>
       <button id="btn-help" class="btn">COMO JOGAR</button>
       <button id="btn-settings" class="btn btn-icon" title="Ajustes" aria-label="Ajustes">⚙</button>
+      <button id="btn-pedagogy" class="btn btn-icon" title="Fundamentação pedagógica" aria-label="Fundamentação pedagógica">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor" d="M12 3 1 8.2 12 13.4 21 9.3V15h2V8.2L12 3z"/>
+          <path fill="currentColor" d="M6.2 12.1V16c0 1.9 2.6 3.4 5.8 3.4s5.8-1.5 5.8-3.4v-3.9l-5.8 2.6-5.8-2.6z"/>
+        </svg>
+      </button>
       <button id="btn-sound" class="btn btn-icon" title="Som" aria-label="Som">🔊</button>
     </div>
 
@@ -126,6 +132,56 @@
   </div>
 </div>
 
+<!-- ============ FUNDAMENTAÇÃO PEDAGÓGICA ============ -->
+<div id="pedagogy" class="pedagogy" hidden>
+  <div class="pedagogy-scale" id="pedagogy-scale">
+  <div class="pedagogy-board" id="pedagogy-board" role="dialog" aria-modal="true" aria-labelledby="pedagogy-title">
+    <header class="ped-head">
+      <h2 id="pedagogy-title">Fundamentação pedagógica</h2>
+      <button type="button" id="pedagogy-close" class="ped-close" aria-label="Fechar">×</button>
+    </header>
+    <div class="ped-grid">
+      <section class="ped-card">
+        <h3>Fundamentação</h3>
+        <p>O encanamento é uma relação entre entrada e saída. <b>S</b> entra, <b>R</b> e <b>C</b> saem, e as peças são as operações legais. A regra cabe numa frase. A dificuldade mora na combinação.</p>
+        <p>A fila impede a onisciência: o aluno trabalha com a peça que chegou. A solução oficial garante que o mapa é possível, e outro caminho também vale, se a água chegar inteira.</p>
+        <p>O preparo separa o projeto da consequência. Errar num cano seco custa pontos. Quando a água entra, o acerto é o fluido dentro do cano. O erro é o vazamento e, depois, o alagamento.</p>
+        <p>A escada das fases entrega a ideia quando a peça anterior já não basta: curvas e um ralo, a T quando nasce a cisterna, a cruz quando o ramal atravessa, o tanque só como pontuação.</p>
+      </section>
+      <section class="ped-card">
+        <h3>Escolhas estéticas</h3>
+        <p><b>Vidro.</b> O cano é janela. Água cobalto, anel cromado, registro circular. A técnica se deixa ver.</p>
+        <p><b>Bambu.</b> O cano ainda é vivo. Seiva, sisal, folha e uma alavanca de galho. Conduzir o fluxo também é cuidar de um material.</p>
+        <p><b>Futurista.</b> Plasma e botoneira neon. O futuro aqui não é uma cidade: é um material que brilha quando a conexão está certa.</p>
+        <p>Nos três o canal ficou oco. A parede emoldura e não tampa. O tabuleiro é escuro para a água ser a figura. No fim, o quadro espera a água encher, para o aluno olhar o que construiu.</p>
+      </section>
+      <section class="ped-card">
+        <h3>Escolhas filosóficas</h3>
+        <p>Uma regra pequena, estável e visível ensina mais do que um tutorial longo. A frase cabe no cartaz: a água sai de S e chega ao destino, sem ponta aberta.</p>
+        <p>Errar faz parte do objeto. Substituir um cano seco é permitido e tem preço. Vazar alaga o mapa, com um som que desce de tom, antes de qualquer quadro.</p>
+        <p>No automático o mundo tem prazo. No manual o registro devolve a autoria. A velocidade não é mérito: é o tempo que resta para corrigir depois que a água entrou.</p>
+        <p>O jogo não coleta o aluno. Não há conta nem servidor de partida. A atividade pode acontecer na escola sem ceder um nome.</p>
+      </section>
+      <section class="ped-card">
+        <h3>BNCC e Computação</h3>
+        <p>As competências gerais 2 e 5 pedem hipótese, teste e autoria com tecnologia. No tabuleiro, a hipótese é o cano e o teste é a água. O complemento de 2022, Parecer CNE/CEB nº 2 e Resolução nº 1, organiza a Computação em Pensamento Computacional, Mundo Digital e Cultura Digital.</p>
+        <ul class="ped-codes">
+          <li><b>EF15CO01</b> Matriz, lista e registro.</li>
+          <li><b>EF15CO02</b> Sequência que a água simula.</li>
+          <li><b>EF15CO04</b> Separar o ralo da cisterna e unir depois.</li>
+          <li><b>EF69CO04</b> Corredor, ramal e cruz como partes.</li>
+          <li><b>EF69CO05</b> S entra. R e C saem.</li>
+          <li><b>EF69CO06</b> A mesma relação, em outras fases.</li>
+          <li><b>EF01CO02</b> Uma sequência curta de giros, com resultado visível.</li>
+          <li><b>EF15CO08</b> O jogo é o artefato da aula, não um aplicativo paralelo.</li>
+        </ul>
+        <p class="ped-note">A estrela registra uma partida, não uma aprendizagem. O professor observa se o aluno antecipa a boca aberta.</p>
+      </section>
+    </div>
+  </div>
+  </div>
+</div>
+
 <!-- ============ OVERLAY: PAUSA / FIM / VITÓRIA / AJUDA ============ -->
 <div id="overlay" class="overlay">
   <div class="dialog">
@@ -135,16 +191,16 @@
   </div>
 </div>
 
-<script src="js/utils.js?v=9"></script>
-<script src="js/pieces.js?v=9"></script>
-<script src="js/config.js?v=9"></script>
-<script src="js/audio.js?v=9"></script>
-<script src="js/levelgen.js?v=9"></script>
-<script src="js/fluid.js?v=9"></script>
-<script src="js/renderer.js?v=9"></script>
-<script src="js/game.js?v=9"></script>
-<script src="js/input.js?v=9"></script>
-<script src="js/ui.js?v=9"></script>
-<script src="js/main.js?v=9"></script>
+<script src="js/utils.js?v=14"></script>
+<script src="js/pieces.js?v=14"></script>
+<script src="js/config.js?v=14"></script>
+<script src="js/audio.js?v=14"></script>
+<script src="js/levelgen.js?v=14"></script>
+<script src="js/fluid.js?v=14"></script>
+<script src="js/renderer.js?v=14"></script>
+<script src="js/game.js?v=14"></script>
+<script src="js/input.js?v=14"></script>
+<script src="js/ui.js?v=14"></script>
+<script src="js/main.js?v=14"></script>
 </body>
 </html>

@@ -812,6 +812,98 @@
     }
   };
 
+  function fitPedagogy() {
+    var board = PM.$('pedagogy-board');
+    var host = PM.$('pedagogy');
+    var wrap = PM.$('pedagogy-scale');
+    if (!board || !host || !wrap || host.hidden) return;
+    var cs = window.getComputedStyle(host);
+    var availW = Math.max(160, host.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight));
+    var availH = Math.max(160, host.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom));
+    board.style.transform = 'none';
+    var bestNative = 0;
+    var bestScale = 0;
+    var bestScaled = Math.min(1080, availW);
+    var w;
+    for (w = 360; w <= 1080; w += 40) {
+      board.style.width = w + 'px';
+      var h = board.offsetHeight;
+      var scale = Math.min(availW / w, availH / h);
+      if (scale >= 0.995 && w > bestNative) bestNative = w;
+      else if (!bestNative && scale > bestScale) {
+        bestScale = scale;
+        bestScaled = w;
+      }
+    }
+    var chosen = bestNative || bestScaled;
+    board.style.width = chosen + 'px';
+    var height = board.offsetHeight;
+    var fit = Math.min(1, availW / chosen, availH / height);
+    board.style.transform = 'scale(' + fit + ')';
+    wrap.style.width = Math.ceil(chosen * fit) + 'px';
+    wrap.style.height = Math.ceil(height * fit) + 'px';
+  }
+
+  U.openPedagogy = function () {
+    var host = PM.$('pedagogy');
+    if (!host) return;
+    host.hidden = false;
+    host.classList.add('show');
+    fitPedagogy();
+    var close = PM.$('pedagogy-close');
+    if (close) close.focus();
+  };
+
+  U.closePedagogy = function () {
+    var host = PM.$('pedagogy');
+    if (!host) return;
+    host.classList.remove('show');
+    host.hidden = true;
+    var opener = PM.$('btn-pedagogy');
+    if (opener) opener.focus();
+  };
+
+  U.bindPedagogy = function () {
+    var btn = PM.$('btn-pedagogy');
+    var host = PM.$('pedagogy');
+    var close = PM.$('pedagogy-close');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        PM.Audio.resume();
+        PM.Audio.ui(true);
+        U.openPedagogy();
+      });
+    }
+    if (close) {
+      close.addEventListener('click', function () {
+        PM.Audio.ui(true);
+        U.closePedagogy();
+      });
+    }
+    if (host) {
+      var press = null;
+      host.addEventListener('pointerdown', function (e) {
+        press = { x: e.clientX, y: e.clientY };
+      });
+      host.addEventListener('click', function (e) {
+        if (e.target !== host) return;
+        if (press && (Math.abs(e.clientX - press.x) > 4 || Math.abs(e.clientY - press.y) > 4)) return;
+        var sel = window.getSelection();
+        if (sel && !sel.isCollapsed) return;
+        U.closePedagogy();
+      });
+    }
+    window.addEventListener('resize', fitPedagogy);
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var box = PM.$('pedagogy');
+      if (!box || box.hidden) return;
+      e.preventDefault();
+      e.stopPropagation();
+      U.closePedagogy();
+    });
+  };
+
   U.init = function () {
     PM.save = PM.loadSave();
     if (PM.save.skill == null) PM.save.skill = 0;
@@ -831,6 +923,7 @@
     PM.$('btn-ruleta').addEventListener('click', function () { PM.Audio.resume(); U.showHelp(); });
     PM.$('btn-sound').addEventListener('click', function () { PM.Audio.resume(); U.toggleSound(); });
     PM.$('btn-settings').addEventListener('click', function () { PM.Audio.resume(); U.showSettings(); });
+    U.bindPedagogy();
     U.bindFlowDock();
     U.syncFlowDock();
 

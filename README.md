@@ -33,79 +33,76 @@ Uma boca sem par é derrota. A água então toma o tabuleiro inteiro, para o err
 
 O medidor à esquerda muda a velocidade do fluido na hora. Para cima, a água corre mais; para baixo, dá mais tempo de ler o caminho.
 
-## Fundamentação
+## Fundamentação pedagógica
 
-O jogo trata o encanamento como um problema de relação entre entrada e saída. S é a entrada, R e C são as saídas, e as peças são as transformações admitidas entre uma e outra. Essa formulação é antiga na computação — um problema bem posto diz o que entra, o que deve sair e quais operações são legais — e é também a forma mais honesta de um quebra-cabeça: a regra cabe numa frase e a dificuldade mora na combinação.
+### Lógica da proposta
 
-A fila impede a onisciência. O aluno não escolhe a peça ideal no catálogo; trabalha com a que chegou e com a decisão de guardá-la, girá-la, descartá-la ou cobrir um cano seco. Isso aproxima a atividade do planejamento sob restrição, não da montagem de um desenho já sabido. A solução oficial de cada fase existe e garante que o mapa é possível, mas o tabuleiro aceita outro caminho, desde que a água chegue inteira.
+O encanamento organiza um problema de conexões: a água parte de S e deve alcançar os destinos R e C, conforme o objetivo de cada fase. As peças definem os caminhos e as operações permitidas. A regra cabe em uma frase. A dificuldade está na combinação.
 
-O tempo de preparo separa o projeto da consequência. Enquanto a água não corre, o aluno pode errar barato: substituir uma peça seca custa pontos, não a fase. Quando o fluido entra, a consequência fica contínua e visível dentro do cano. O acerto não é um aviso. É a água atravessando o que foi construído. O erro também não é um aviso. É o vazamento e, em seguida, o alagamento.
+A fila limita as escolhas: o aluno trabalha com a peça disponível e precisa ajustar o plano ao que chega. A solução de referência apresenta um caminho possível, mas não precisa ser o único. Outros percursos também valem, desde que cumpram os objetivos da fase e conduzam a água sem vazamentos.
 
-A progressão das trinta fases é uma escada de ideias, não só de tamanho:
+O preparo separa o planejamento da execução. Substituir um cano seco custa pontos, mas permite revisar o projeto antes da passagem da água. Quando o fluxo começa, as conexões são postas à prova: o acerto aparece na continuidade do percurso; o erro, no vazamento e no alagamento.
 
-1. retas e curvas, um ralo, e um obstáculo fechando o “seguir em frente” de cada curva;
-2. a junção T passa a ser necessária, porque existe uma cisterna além do ralo;
-3. a cruz passa a ser necessária, porque o ramal atravessa o corredor;
-4. o tanque entra como escolha de pontuação, não como peça obrigatória da topologia.
+A progressão das fases introduz novos recursos quando os anteriores já não bastam: primeiro, as curvas e o ralo; depois, a conexão em T, com a chegada da cisterna; em seguida, a cruz, quando os percursos precisam se atravessar. O tanque acrescenta uma possibilidade de pontuação, sem substituir o objetivo principal.
 
-O aluno encontra a peça nova quando o mapa já tornou a peça antiga insuficiente. Retirá-la seria mais claro do que deixá-la sem função.
+### Escolhas estéticas
 
-## Escolhas estéticas
+**Vidro.** O cano é janela: água azul-cobalto, anel cromado e registro circular. O funcionamento fica à vista.
 
-Há três matérias, e cada uma muda o que significa “ver a água”.
+**Bambu.** O cano evoca um material vivo: seiva, sisal, folha e uma alavanca de galho. A condução do fluxo ganha uma linguagem orgânica.
 
-**Vidro.** O cano é uma janela. O miolo é oco, a parede é clara, a água é azul-cobalto com filete ciano para não se perder no azulejo. Anéis cromados marcam a junta sem tapar o canal. O registro é uma roda circular, o gesto de quem abre uma válvula de laboratório. O som é água corrente e um estalo de vidro. A ideia visual é a da transparência: o aluno deve ver o fluido passar por dentro da peça, não apenas na emenda.
+**Futurista.** Plasma e botoneira neon. O futuro, aqui, não é uma cidade: é um material que brilha quando a conexão está correta.
 
-**Bambu.** O cano ainda é vivo. Pedra, musgo, corda de sisal, nó e folha. O líquido é seiva, verde e amarelo, grosso, com bolha. A alavanca é um galho amarrado. O som é madeira e gotejo. A técnica aqui não parece máquina; parece cultivo. O caminho continua sendo lógica, mas o mundo ao redor lembra que conduzir um fluxo também é cuidar de um material.
+Nos três temas, o interior do canal permanece visível. A parede emoldura o fluxo, sem encobri-lo. O tabuleiro escuro destaca a água. Ao final, a tela de resultado espera o preenchimento dos canos, para que o aluno observe o percurso que construiu.
 
-**Futurista.** O cano anuncia a própria energia. Fibra escura, abraçadeira metálica, plasma laranja e violeta, botoneira neon. O som é elétrico. O futuro, neste jogo, não é um cenário de cidade. É um material que brilha quando a conexão está certa e denuncia a ponta aberta com a mesma intensidade.
+### Princípios de projeto
 
-Nos três estilos o canal ficou oco de propósito. Um cano opaco escondia a única informação que importa durante o fluxo: por onde a água está indo. O fluido ocupa o miolo; a parede, a corda ou a abraçadeira ficam na borda, como moldura, não como tampa.
+A proposta privilegia uma regra curta, estável e visível. Ela pode ser apresentada em um cartaz: a água sai de S e deve alcançar os destinos da fase, sem deixar pontas abertas no percurso conectado à fonte.
 
-O tabuleiro é escuro para o cano e a água serem a figura. O painel é curto. O registro, a alavanca ou a botoneira nascem numa casa que não é S, não é destino e não faz parte do caminho da solução, para o controle não roubar a peça que o aluno precisa colocar.
+O erro faz parte da experiência. Substituir um cano seco é permitido e tem um custo na pontuação. Quando há vazamento, o alagamento e o som descendente sinalizam a falha antes da tela de resultado. A intenção é tornar a consequência perceptível, para que o aluno possa relacioná-la às próprias escolhas.
 
-Quando a fase acaba bem, o quadro de “próxima fase” espera. A água termina de encher e o aluno olha o encanamento pronto. A pressa do sistema escolar — fechar, pontuar, avançar — foi adiada de propósito por alguns segundos.
+No modo automático, o início do fluxo estabelece um prazo para o planejamento. No manual, o aluno decide quando abrir o registro. A velocidade não deve ser confundida com aprendizagem: o interesse pedagógico está nas decisões, nas previsões e nas revisões que o aluno consegue explicar.
 
-## Escolhas filosóficas
+A proposta prevê o uso sem cadastro e sem servidor de partidas. Assim, a atividade pode ocorrer sem exigir que o aluno informe seu nome.
 
-O jogo aposta que uma regra pequena, estável e visível ensina mais do que um tutorial longo. A frase cabe no cartaz: a água sai de S e tem de chegar ao destino, sem ponta aberta. Todo o resto é consequência dessa frase.
+### Relação com a BNCC e seu complemento de Computação
 
-Errar faz parte do objeto, não da punição escondida. Substituir um cano seco é permitido e tem preço. Vazar alaga o mapa, com um som que desce de tom, para o fracasso ser percebido pelo corpo antes de ser lido num quadro. A derrota não apaga o tabuleiro na hora. Primeiro mostra o que a água fez com o plano.
+A proposta pode contribuir para as competências gerais 2 e 5 da BNCC. A competência 2 se relaciona à investigação, à elaboração e ao teste de hipóteses e à resolução de problemas. A competência 5 envolve o uso crítico, significativo, reflexivo e ético das tecnologias digitais, com protagonismo e autoria. No jogo, o percurso construído pode ser tratado como uma hipótese, e a passagem da água, como um teste de suas conexões. Essa relação ganha sentido pedagógico quando o aluno antecipa resultados, explica decisões e revê a solução.
 
-O aluno também escolhe o regime da consequência. No automático, o mundo tem prazo: a água vem, queira o plano pronto ou não. No manual, o prazo deixa de ser o maestro e o gesto do registro passa a ser a autoria. Os dois modos são legítimos. O automático treina decidir sob tempo. O manual treina decidir quando o plano está à altura. Nenhum dos dois é tratado como o modo “sério”.
+O complemento de Computação à BNCC, fundamentado no Parecer CNE/CEB nº 2/2022 e instituído pela Resolução CNE/CEB nº 1, de 4 de outubro de 2022, organiza as aprendizagens em três eixos: Pensamento Computacional, Mundo Digital e Cultura Digital. A proposta se aproxima principalmente do primeiro, com possibilidades de articulação com Cultura Digital. Não se pressupõe que o jogo, isoladamente, contemple os três eixos.
 
-A velocidade é um medidor, não um menu de dificuldade com nomes morais. Mais rápida não significa aluno melhor. Significa menos tempo para corrigir depois que a água entrou. O professor, ou o próprio aluno, nivela o fluxo ao momento da aula.
+Nos anos iniciais, podem ser exploradas as seguintes relações:
 
-O jogo não coleta o aluno. Não há servidor de partida, não há nome obrigatório, não há peça comprada. O recorde mora no navegador. Isso é uma escolha sobre infância e dado: a atividade pode acontecer na escola sem abrir uma conta.
+**EF15CO01 — Organização e representação da informação.** O tabuleiro pode ser explorado como matriz, e a fila de peças, como lista ordenada. A relação com registros pode ser trabalhada por meio de descrições das peças, com atributos como tipo, orientação e posição. O foco está em o aluno reconhecer e utilizar essas formas de representação.
 
-O som não vem de arquivo. Cada estilo tem uma voz feita de ruído, tom e filtro, para o material ser ouvido junto com o que é visto. Vidro corre, bambu goteja, o futuro zumbe. Quando a água vaza, essa voz é interrompida por um intervalo descendente e dissonante. O ouvido entende a derrota mesmo se o olhar ainda está no cano.
+**EF15CO02 — Construção e simulação de algoritmos.** O professor pode propor que os alunos descrevam, por palavras, desenhos ou comandos, uma sequência de ações para construir ou verificar um percurso. Para ampliar o trabalho com a habilidade, a atividade deve incluir condições e repetições, além de sequências simples.
 
-## Alinhamento com a BNCC e com a Computação
+**EF15CO04 — Decomposição.** O desafio pode ser dividido em partes: planejar o caminho até o ralo, planejar a ligação com a cisterna e, depois, combinar as soluções. A aprendizagem está na divisão do problema, na resolução das partes e na verificação de sua integração.
 
-A Base Nacional Comum Curricular de 2018 não tem um componente chamado Tecnologia. O que a escola costuma nomear assim atravessa as competências gerais e, desde 2022, o complemento de Computação. Este jogo se encosta nos dois, sem fingir que uma partida cumpre sozinha uma habilidade.
+**EF01CO02 — Identificação e execução de sequências de passos.** Em desafios adequados ao 1º ano, o aluno pode seguir uma sequência curta de posicionamentos e giros, observando o resultado. Quando a atividade envolver criar ou reorganizar essas instruções e reconhecer seu caráter de algoritmo, também poderá se relacionar à EF01CO03.
 
-A competência geral 5 pede compreender, usar e criar tecnologias digitais de forma crítica, significativa, reflexiva e ética para resolver problemas e exercer autoria. A competência geral 2 pede exercitar a curiosidade intelectual e a investigação, elaborar e testar hipóteses. No tabuleiro, a hipótese é o cano; o teste é a água.
+**EF15CO08 — Uso de tecnologias computacionais.** O jogo pode funcionar como recurso para resolver problemas e expressar soluções de maneira criativa. A mediação docente deve dar espaço à comparação de percursos, à explicação das escolhas e à reflexão sobre o uso da ferramenta.
 
-O complemento aprovado pelo Parecer CNE/CEB nº 2/2022 e instituído pela Resolução CNE/CEB nº 1/2022 organiza a Computação em três eixos: Pensamento Computacional, Mundo Digital e Cultura Digital. O jogo mora sobretudo no primeiro, conversa com o segundo pela forma como a informação é desenhada, e com o terceiro pela autoria e pelo uso responsável de um artefato simples.
+Nos anos finais, o jogo pode servir como ponto de partida para atividades complementares:
 
-| Habilidade | O que a norma pede | O que a fase pede ao aluno |
-| --- | --- | --- |
-| EF15CO01 | Identificar formas de organizar e representar a informação, entre elas matrizes, registros e listas. | Ler o tabuleiro como matriz, a fila como lista e cada casa como um registro: vazia, cano, bloqueio, fonte ou destino. |
-| EF15CO02 | Construir e simular algoritmos com sequências de instruções. | Ordenar peças e giros até que a água, ao simular o caminho, percorra a sequência montada. |
-| EF15CO04 | Decompor um problema complexo, resolver as partes e combiná-las. | Separar o trecho até o ralo do ramal da cisterna e só então unir os dois numa T ou numa cruz. |
-| EF69CO04 | Construir soluções por decomposição. | Nas fases avançadas, o corredor, o ramal e o cruzamento são subproblemas com peças diferentes. |
-| EF69CO05 | Identificar entradas e saídas e tratar o problema como relação entre elas. | S é entrada. R e C são saídas. A peça só vale se transforma a primeira nas segundas sem perder fluxo. |
-| EF69CO06 | Comparar instâncias de um mesmo problema e reconhecer o que permanece. | As trinta fases repetem a mesma relação entrada-saída e mudam tamanho, voltas, ramais e prazo. |
-| EF01CO02 e EF01CO03 | Identificar, seguir, reorganizar e criar sequências de passos. | Nos anos iniciais, girar e encaixar já é uma sequência curta, com resultado visível. |
-| EF15CO08 e EF01CO06 | Usar artefatos computacionais para resolver problemas e atender uma necessidade. | O jogo é o artefato: cabe no navegador da escola e serve a uma situação de aula, não a um aplicativo paralelo. |
+**EF69CO04 — Decomposição e programação.** Os alunos podem dividir o desafio em subproblemas e, posteriormente, automatizar uma solução ou um procedimento de verificação em uma linguagem de programação. A montagem dos canos, sozinha, não contempla a exigência de automatização.
 
-O eixo Mundo Digital aparece na codificação visível. Direção, máscara de bocas e estado da casa são informações codificadas, e o desenho as devolve ao aluno sem pedir que ele leia código. Ver o fluido dentro do cano é a decodificação: o estado interno do sistema ficou público.
+**EF69CO05 — Entradas, saídas e tipos de dados.** A turma pode identificar quais informações definem o problema: dimensões do tabuleiro, posições dos elementos, tipos e orientações das peças e destinos exigidos. A saída esperada pode ser uma configuração válida de conexões. O trabalho deve explicitar os tipos de dados envolvidos, sem confundir as entradas e saídas computacionais com a origem e os destinos da água.
 
-O eixo Cultura Digital aparece no modo de uso. O aluno escolhe ritmo e autoria (automático ou manual), joga sem ceder dados e encontra três imaginários de técnica — o laboratório transparente, o material que cresce, a máquina que se anuncia. Dá para perguntar em aula qual desses mundos trata a água como recurso, qual trata como seiva e qual trata como energia, e o que muda no cuidado quando o nome do fluido muda.
+**EF69CO06 — Generalização.** Diferentes fases podem ser comparadas como instâncias de um mesmo problema. Para desenvolver a habilidade, essa comparação deve avançar para a criação de um algoritmo geral, com parâmetros que permitam tratar diferentes configurações. A simples passagem de uma fase para outra não basta.
 
-O jogo não avalia a habilidade no lugar do professor. A estrela registra uma partida, não uma aprendizagem. O alinhamento serve para o planejamento: dizer em que eixo a aula está e o que observar enquanto a água corre. Observar, por exemplo, se o aluno antecipa a boca aberta, se separa o ramal do corredor, se revisa um cano seco antes do fluxo ou só reage ao vazamento.
+### Observação da aprendizagem
 
-Uma aula curta pode ser: uma fase no automático, a conversa sobre onde a água vazaria, a mesma fase no manual com o medidor mais lento, e o registro escrito de uma estratégia (“primeiro o caminho do R, depois o da C”). Isso cabe em EF15CO02 e EF15CO04 sem transformar o jogo em ficha.
+A estrela registra o desempenho em uma partida; sozinha, não demonstra aprendizagem. A observação do professor pode considerar se o aluno:
+
+- antecipa uma abertura que poderá provocar vazamento;
+- explica por que escolheu determinada peça ou orientação;
+- divide o desafio em partes e consegue reuni-las;
+- identifica a causa de uma falha e propõe uma correção;
+- compara soluções e justifica suas diferenças;
+- reaproveita uma estratégia em outro desafio, reconhecendo o que precisa mudar.
+
+O foco não está apenas em fazer a água chegar. Está em compreender e explicar por que ela chega — ou por que vaza.
 
 ## Preparado para a Vercel
 

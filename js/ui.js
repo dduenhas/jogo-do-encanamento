@@ -814,34 +814,15 @@
 
   function fitPedagogy() {
     var board = PM.$('pedagogy-board');
-    var host = PM.$('pedagogy');
     var wrap = PM.$('pedagogy-scale');
-    if (!board || !host || !wrap || host.hidden) return;
-    var cs = window.getComputedStyle(host);
-    var availW = Math.max(160, host.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight));
-    var availH = Math.max(160, host.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom));
-    board.style.transform = 'none';
-    var bestNative = 0;
-    var bestScale = 0;
-    var bestScaled = Math.min(1080, availW);
-    var w;
-    for (w = 360; w <= 1080; w += 40) {
-      board.style.width = w + 'px';
-      var h = board.offsetHeight;
-      var scale = Math.min(availW / w, availH / h);
-      if (scale >= 0.995 && w > bestNative) bestNative = w;
-      else if (!bestNative && scale > bestScale) {
-        bestScale = scale;
-        bestScaled = w;
-      }
+    if (board) {
+      board.style.transform = 'none';
+      board.style.width = '';
     }
-    var chosen = bestNative || bestScaled;
-    board.style.width = chosen + 'px';
-    var height = board.offsetHeight;
-    var fit = Math.min(1, availW / chosen, availH / height);
-    board.style.transform = 'scale(' + fit + ')';
-    wrap.style.width = Math.ceil(chosen * fit) + 'px';
-    wrap.style.height = Math.ceil(height * fit) + 'px';
+    if (wrap) {
+      wrap.style.width = '';
+      wrap.style.height = '';
+    }
   }
 
   U.openPedagogy = function () {

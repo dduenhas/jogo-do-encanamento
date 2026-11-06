@@ -714,7 +714,7 @@ html[data-style="future"] .flow-mode.is-manual {
 @keyframes blink { 50% { opacity: .35; } }
 
 /* ============================================================
-   FUNDAMENTAÇÃO — modal sem rolagem, cabe na tela
+   FUNDAMENTAÇÃO — leitura do texto revisado
    ============================================================ */
 .pedagogy {
   position: fixed;
@@ -730,22 +730,26 @@ html[data-style="future"] .flow-mode.is-manual {
 }
 .pedagogy.show { display: flex; }
 .pedagogy-scale {
-  flex: 0 0 auto;
+  width: min(860px, 100%);
+  height: 100%;
+  max-height: 100%;
+  display: flex;
   overflow: hidden;
 }
 .pedagogy-board {
-  width: min(1080px, 100%);
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 14px 16px;
+  padding: 14px 8px 14px 16px;
   overflow: hidden;
   border-radius: 16px;
   border: 2px solid var(--line);
   background: linear-gradient(170deg, #212b42, #141a28);
   box-shadow: var(--shadow);
   color: #d7e0f2;
-  transform-origin: top left;
   user-select: text;
   -webkit-user-select: text;
   touch-action: auto;
@@ -782,55 +786,48 @@ html[data-style="future"] .flow-mode.is-manual {
   cursor: pointer;
 }
 .ped-close:hover { background: #1a2438; }
-.ped-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  grid-template-rows: auto auto;
+.ped-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  overflow: hidden;
 }
 .ped-card {
   min-width: 0;
-  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: rgba(10, 16, 28, 0.45);
   padding: 10px 12px;
 }
 .ped-card h3 {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   font-size: 14px;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   color: var(--accent);
 }
-.ped-card p,
-.ped-codes {
-  margin: 0 0 4px;
+.ped-card h4 {
+  margin: 12px 0 6px;
   font-size: 13px;
-  line-height: 1.32;
-}
-.ped-card p:last-child { margin-bottom: 0; }
-.ped-codes {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px 10px;
-}
-.ped-codes li { min-width: 0; }
-.ped-codes b {
+  letter-spacing: 0.4px;
   color: var(--gold);
-  font-weight: 800;
-  letter-spacing: 0.2px;
 }
-.ped-note {
-  color: var(--muted);
-  margin-bottom: 0;
+.ped-card p,
+.ped-watch {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.45;
 }
-
-@media (max-width: 720px) {
-  .ped-codes { grid-template-columns: 1fr; }
+.ped-card p:last-child,
+.ped-watch:last-child { margin-bottom: 0; }
+.ped-card b { color: var(--gold); }
+.ped-watch {
+  margin-left: 1.1em;
+  padding: 0;
 }
 
 /* ============================================================

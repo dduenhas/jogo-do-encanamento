@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#10141c">
+<meta name="description" content="Jogo do encanamento: ligue os canos e conduza a água sem deixar vazar.">
+<title>Pipe Mania — Jogo do Encanamento</title>
+<link rel="stylesheet" href="css/style.css?v=9">
+</head>
+<body>
+
+<!-- ============ TELA: MENU PRINCIPAL ============ -->
+<div id="screen-menu" class="screen active">
+  <div class="menu-wrap">
+    <h1 class="game-title">PIPE <span>MANIA</span></h1>
+    <p class="game-sub">A água sai de S. Você constrói o caminho.</p>
+
+    <h2 class="section-label">Escolha o estilo</h2>
+    <div id="style-list" class="style-list"></div>
+
+    <div class="menu-row">
+      <button id="btn-play" class="btn btn-primary">JOGAR</button>
+      <button id="btn-continue" class="btn">CONTINUAR</button>
+      <button id="btn-help" class="btn">COMO JOGAR</button>
+      <button id="btn-settings" class="btn btn-icon" title="Ajustes" aria-label="Ajustes">⚙</button>
+      <button id="btn-sound" class="btn btn-icon" title="Som" aria-label="Som">🔊</button>
+    </div>
+
+    <div class="menu-row menu-row-small">
+      <span id="menu-best" class="muted"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TELA: SELEÇÃO DE FASES ============ -->
+<div id="screen-levels" class="screen">
+  <div class="menu-wrap">
+    <h2 class="section-title" id="levels-title">Fases</h2>
+    <div id="level-grid" class="level-grid"></div>
+    <div class="menu-row">
+      <button id="btn-levels-back" class="btn">VOLTAR</button>
+      <button id="btn-levels-reset" class="btn btn-danger">ZERAR PROGRESSO</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TELA: JOGO ============ -->
+<div id="screen-game" class="screen">
+  <div class="game-shell">
+
+    <header class="hud">
+      <button id="btn-menu" class="hud-btn" title="Menu" aria-label="Menu">≡</button>
+      <div class="hud-readout" id="hud-level">Fase 1</div>
+      <div class="hud-meter" id="hud-meter" title="Casas com água">
+        <div class="hud-meter-fill" id="hud-meter-fill"></div>
+        <span class="hud-meter-label" id="hud-water">0/6</span>
+      </div>
+      <div class="hud-readout hud-phase" id="hud-timer">Preparo 18s</div>
+      <div class="hud-readout" id="hud-score">0</div>
+      <button id="btn-pause" class="hud-btn" title="Pausar" aria-label="Pausar">❚❚</button>
+    </header>
+
+    <div class="play-grid">
+
+      <aside class="sidebar">
+        <button type="button" class="side-box side-current" id="btn-piece" title="Girar peça" aria-label="Girar peça">
+          <div class="side-label">PEÇA</div>
+          <canvas id="cv-current" class="side-canvas" width="96" height="96"></canvas>
+          <div class="side-name" id="piece-name">RETA</div>
+        </button>
+        <div class="side-box side-queue">
+          <div class="side-label">FILA</div>
+          <canvas id="cv-queue" class="side-canvas side-canvas-queue" width="72" height="216"></canvas>
+        </div>
+        <div class="side-actions">
+          <button id="btn-rotccw" class="side-btn" data-act="rotccw" title="Girar no outro sentido (Q)" aria-label="Girar no outro sentido">⟲</button>
+          <button id="btn-skip" class="side-btn" data-act="discard" title="Descartar peça (D)" aria-label="Descartar">✕</button>
+          <button id="btn-ruleta" class="side-btn" title="Como jogar" aria-label="Como jogar">?</button>
+        </div>
+        <div class="flow-dock" id="flow-dock">
+          <div class="flow-label">FLUXO</div>
+          <div class="flow-slider" id="flow-slider" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Velocidade do fluido" title="Arraste para mudar a velocidade da água">
+            <div class="flow-track">
+              <div class="flow-fill" id="flow-fill"></div>
+              <div class="flow-shine"></div>
+            </div>
+            <div class="flow-thumb" id="flow-thumb"></div>
+          </div>
+          <div class="flow-read" id="flow-read">Normal</div>
+          <button type="button" id="btn-flow-mode" class="flow-mode" title="Automático: a água sai sozinha. Manual: só sai no registro.">AUTOMÁTICO</button>
+        </div>
+      </aside>
+
+      <div class="board-frame" id="board-frame">
+        <canvas id="cv-board"></canvas>
+        <div id="board-toast" class="board-toast"></div>
+        <div id="coach" class="coach" hidden>
+          <p id="coach-text"></p>
+          <div class="coach-actions">
+            <button type="button" id="coach-next" class="btn btn-primary">PRÓXIMO</button>
+            <button type="button" id="coach-skip" class="btn">PULAR</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="touchpad">
+      <p class="pad-hint" id="pad-hint">Toque na peça para girar. Arraste no tabuleiro e solte para colocar.</p>
+      <div class="pad-row">
+        <button class="pad-btn" data-act="rotccw" title="Girar no outro sentido" aria-label="Girar no outro sentido">
+          <span class="ico">⟲</span><span class="lbl">GIRAR</span>
+        </button>
+        <button class="pad-btn pad-wide" data-act="discard" title="Descartar" aria-label="Descartar">
+          <span class="ico">✕</span><span class="lbl">DESCARTAR</span>
+        </button>
+        <button class="pad-btn pad-wide pad-drop" id="btn-release" data-act="release" title="Soltar a água agora" aria-label="Soltar a água">
+          <span class="ico">≈</span><span class="lbl" id="release-label">SOLTAR ÁGUA</span>
+        </button>
+        <div class="pad-status" id="pad-status" hidden>Fluindo</div>
+      </div>
+      <p class="key-hint">Setas ou A W S movem · Q E giram · Espaço coloca · D descarta · R solta a água</p>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ============ OVERLAY: PAUSA / FIM / VITÓRIA / AJUDA ============ -->
+<div id="overlay" class="overlay">
+  <div class="dialog">
+    <h2 id="dlg-title">Pausa</h2>
+    <div id="dlg-body" class="dlg-body"></div>
+    <div id="dlg-actions" class="dlg-actions"></div>
+  </div>
+</div>
+
+<script src="js/utils.js?v=9"></script>
+<script src="js/pieces.js?v=9"></script>
+<script src="js/config.js?v=9"></script>
+<script src="js/audio.js?v=9"></script>
+<script src="js/levelgen.js?v=9"></script>
+<script src="js/fluid.js?v=9"></script>
+<script src="js/renderer.js?v=9"></script>
+<script src="js/game.js?v=9"></script>
+<script src="js/input.js?v=9"></script>
+<script src="js/ui.js?v=9"></script>
+<script src="js/main.js?v=9"></script>
+</body>
+</html>
